@@ -1,7 +1,7 @@
 const fs = require("fs-extra").promises;
 var argv = process.argv[2];
 
-( async () => {
+(async () => {
     var dir =".";
     if(argv) dir = argv;
 

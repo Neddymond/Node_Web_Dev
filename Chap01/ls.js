@@ -1,6 +1,16 @@
 const fs = require("fs");
 const util = require("util");
-const fs_readDir = util.promisify(fs.readdir);
+// const fs_readDir = util.promisify(fs.readdir);
+
+const fs_readDir = dir => {
+    return new Promise((resolve , reject) => {
+        fs.readdir(dir, (err, fileList) => {
+            if(err) reject(err);
+            else resolve(fileList);
+        });
+    });
+}
+
 const argv = process.argv[2];
 
 (async () => {
